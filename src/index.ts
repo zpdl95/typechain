@@ -1,21 +1,29 @@
-/* 일반 js에서 type을 사용하고 싶으면 클래스를 사용해서 type지정하면됨 */
-class Human {
-  public name: string; /* public = 클래스 외부에서 접근가능 */
-  public age: number;
-  public gender: string;
-  /* constructor = 생성자 method. 클래스가 실행할 때마다 호출 */
-  constructor(name: string, age: number, gender: string) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+class Block {
+  public index: number;
+  public hash: string;
+  public previousHash: string;
+  public data: string;
+  public timestamp: number;
+  constructor(
+    index: number,
+    hash: string,
+    previousHash: string,
+    data: string,
+    timestamp: number
+  ) {
+    this.index = index;
+    this.hash = hash;
+    this.previousHash = previousHash;
+    this.data = data;
+    this.timestamp = timestamp;
   }
 }
 
-const lynn = new Human("Lynn", 25, "female");
+const genesisBlock: Block = new Block(0, "qwer", "", "Hello", 123456);
 
-const sayHi = (person: Human): string /* ← 함수의 return값에 type을 설정 */ => {
-  return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender}`;
-};
+/* 배열안에 Block 타입만 들어갈 수 있음 */
+let blockchain: [Block] = [genesisBlock];
 
-console.log(sayHi(lynn));
+console.log(blockchain);
+
 export {};
