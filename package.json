@@ -4,9 +4,14 @@
   "description": "Learning Typescript by making a Blockchain with it",
   "main": "index.js",
   "scripts": {
-    "prestart": "tsc",
-    "start": "node index.js"
+    "start": "tsc-watch --onSuccess \"node dist/index.js\""
   },
   "author": "zpdl95",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "tsc-watch": "^4.6.0"
+  }
 }
